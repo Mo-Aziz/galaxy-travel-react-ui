@@ -8,6 +8,12 @@
     padding: 1rem;
     z-index: 10;
   }
+
+  /* nav bar transitional color overlay */
+  .header-bg{
+    background-color: rgba(0, 0, 0, 0.85);
+    transition: .5s ;
+  }
   
   .nav-menu {
     display: flex;

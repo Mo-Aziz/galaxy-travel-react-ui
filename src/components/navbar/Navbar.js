@@ -7,8 +7,26 @@ const Navbar = () => {
   // handling state for the hamburger icon clicking and events triggering.
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+
+  //adding the overlay color for the header when scroll down
+  const [color, setColor] = useState(false);
+
+
+  // change color function when scrolling down
+  const changeColor = () => {
+    if (window.scrollY >= 100) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
+  };
+
+  // adding event listener.
+  window.addEventListener('scroll', changeColor)
+
+
   return (
-    <div className="header">
+    <div className={color ? 'header header-bg' : 'header'}>
       <Link to="/">
         <h1> Galaxy TRVL </h1>
       </Link>
@@ -21,10 +39,10 @@ const Navbar = () => {
           <Link to="/pricing">Pricing</Link>
         </li>
         <li>
-          <Link to="/">Training</Link>
+          <Link to="/training">Training</Link>
         </li>
         <li>
-          <Link to="/">Contact</Link>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
       <div className="hamburger" onClick={handleClick}>
